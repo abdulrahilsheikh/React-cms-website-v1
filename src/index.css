@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+*{
+  margin: 0;
+  padding: 0;
+
+  --black: #000101ff;
+--seasalt: #F8F8F7ff;
+--white-smoke: #F3F2F1ff;
+--mindaro: #DDEF7Bff;
+--onyx: #3D3D3Dff;
+}
