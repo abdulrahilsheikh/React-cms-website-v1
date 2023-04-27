@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
-import { SearchIcon } from "lucide-react";
-import { useRef, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AvatarComponent } from "../avatar/avatar";
 import { SelectComponent } from "../select/select";
 import { UnderScore } from "../underScore/UnderScore";
@@ -26,11 +24,11 @@ const options = [
   { value: 3, lable: "Candidates" },
 ];
 const Header = ({}: Props) => {
-  const ref = useRef<any>(null);
   const url = useLocation();
   const navigation = useNavigate();
   console.log(url.pathname.split("/"));
-  const [active, setActive] = useState(headerTabs[url.pathname.split("/")[2]]);
+  // const [active, setActive] = useState(headerTabs[url.pathname.split("/")[2]]);
+  const [active, setActive] = useState(1);
 
   const navigate = (e: any) => {
     const temp = Object.entries(headerTabs).filter(([_, a]) => a == e)[0][0];

@@ -1,20 +1,8 @@
-import { useState } from "react";
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  defer,
-  json,
-  Outlet,
-  RouterProvider,
-  useLoaderData,
-  useParams,
-} from "react-router-dom";
-import { Value } from "sass";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
 import Investment from "./outlets/investment/Investment";
 import MainPage from "./pages/mainPage/MainPage";
-import Team from "./pages/team/Team";
 
 function App() {
   const router = createBrowserRouter([

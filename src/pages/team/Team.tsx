@@ -1,6 +1,6 @@
 type Props = {};
 
-const Team = (props: Props) => {
+const Team = ({}: Props) => {
   return <div>Team</div>;
 };
 
