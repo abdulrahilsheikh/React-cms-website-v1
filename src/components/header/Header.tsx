@@ -27,8 +27,9 @@ const Header = ({}: Props) => {
   const url = useLocation();
   const navigation = useNavigate();
   console.log(url.pathname.split("/"));
-  // const [active, setActive] = useState(headerTabs[url.pathname.split("/")[2]]);
-  const [active, setActive] = useState(1);
+  const urlSplit = url.pathname.split("/");
+  const tab = headerTabs[urlSplit[urlSplit.length - 1]];
+  const [active, setActive] = useState(tab ? tab : 1);
 
   const navigate = (e: any) => {
     const temp = Object.entries(headerTabs).filter(([_, a]) => a == e)[0][0];

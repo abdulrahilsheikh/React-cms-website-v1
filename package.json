@@ -10,16 +10,18 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "tsc && vite build",
- "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.2",
     "@radix-ui/react-select": "^1.2.1",
+    "apexcharts": "^3.39.0",
     "class-variance-authority": "^0.5.3",
     "clsx": "^1.2.1",
     "framer-motion": "^10.12.4",
     "lucide-react": "^0.180.0",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "sass": "^1.62.1",

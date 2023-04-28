@@ -4,5 +4,5 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "https://abdulrahilsheikh.github.io/React-cms-website-v1",
+  base: "/React-cms-website-v1",
 });

@@ -9,7 +9,7 @@ function MainPage({}: Props) {
       <SideBar />
       <div className="h-screen flex flex-col">
         <Header />
-        <div className="overflow-auto">
+        <div className="overflow-auto h-full">
           <Outlet />
         </div>
       </div>
