@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import InfoCard from "../../components/infoCard/InfoCard";
+import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
 
 const StepLineChart = lazy(
   ///@ts-ignore
@@ -98,7 +99,13 @@ const Investment = ({}: Props) => {
           <InfoCard />
         </div>
         <div className="px-2 py-4 ">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={
+              <div className="w-full h-[60vh] flex items-center justify-center">
+                <LoadingSpinner />
+              </div>
+            }
+          >
             <StepLineChart />
           </Suspense>
         </div>

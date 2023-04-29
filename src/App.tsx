@@ -1,10 +1,7 @@
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
+import Comapny from "./outlets/company/Comapny";
 import Investment from "./outlets/investment/Investment";
 import MainPage from "./pages/mainPage/MainPage";
 
@@ -13,19 +10,29 @@ function App() {
     [
       {
         // it renders this element
-        element: <Navigate to={"/dashboard/investment"} />,
+        element: <MainPage />,
         // when the URL matches this segment
         path: "/",
+        children: [
+          {
+            path: "",
+            element: <Investment />,
+          },
+        ],
       },
       {
         // it renders this element
         element: <MainPage />,
         // when the URL matches this segment
-        path: "dashboard",
+        path: "/dashboard",
         children: [
           {
             path: "investment",
             element: <Investment />,
+          },
+          {
+            path: "company",
+            element: <Comapny />,
           },
           {
             path: "*",

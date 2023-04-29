@@ -46,11 +46,16 @@ const AvatarFallback = React.forwardRef<
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
-type Props = { link: string; fallBack: string; alt: string };
+type Props = {
+  link: string;
+  fallBack: string;
+  alt: string;
+  className?: string;
+};
 
-function AvatarComponent({ link, fallBack, alt }: Props) {
+function AvatarComponent({ link, fallBack, alt, className = "" }: Props) {
   return (
-    <Avatar>
+    <Avatar className={className}>
       <AvatarImage src={link} alt={alt} />
       <AvatarFallback>{fallBack}</AvatarFallback>
     </Avatar>

@@ -82,7 +82,7 @@ const StepLineChart = ({}: Props) => {
       name: "series-1",
       type: "area",
       data: chartData[chartTimeFrame].yaxis,
-      color: "#00D8FF",
+      color: chartTimeFrame == "Weekly" ? "#a1a1aa" : "#DDEF7Bff",
     },
   ];
   const options = {
@@ -91,13 +91,13 @@ const StepLineChart = ({}: Props) => {
     },
     stroke: {
       curve: "stepline",
+      colors: ["#000000"],
     },
     fill: {
       type: "solid",
       opacity: [0.35, 1],
-      color: ["#cccc"],
+      colors: ["#DDEF7Bff", "#a1a1aa"],
     },
-
     xaxis: {
       categories: chartData[chartTimeFrame].xaxis,
       title: {
@@ -115,7 +115,7 @@ const StepLineChart = ({}: Props) => {
   };
 
   return (
-    <div className="p-2 shadow rounded-xl shadow-zinc-400">
+    <div className="p-2 shadow rounded-xl shadow-zinc-400 ">
       <div className="px-4 flex justify-between mb-4 mt-2">
         <div className="text-xl font-bold">Balance Overview</div>
         <div>
