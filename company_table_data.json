@@ -1,3 +1,165 @@
 {
-    "key":"value"
+  "names": [
+    "Laptop",
+    "Fitness Tracker",
+    "Headphones",
+    "Smartwatch",
+    "Bluetooth Speaker",
+    "Camera",
+    "Wireless Earbuds",
+    "Gaming Mouse",
+    "TV",
+    "Tablet"
+  ],
+
+  "brands": [
+    "Apple",
+    "Sony",
+    "Microsoft",
+    "Samsung",
+    "Bose",
+    "LG",
+    "HP",
+    "Dell",
+    "Google",
+    "Lenovo"
+  ],
+
+  "models": [
+    "MacBook Air",
+    "PlayStation 5",
+    "Xbox Series X",
+    "Galaxy Note 20",
+    "iPhone 12",
+    "Pixel 5",
+    "Surface Pro 7",
+    "Alienware m15 R5",
+    "Inspiron 15 7000",
+    "ThinkPad X1 Carbon"
+  ],
+
+  "colors": [
+    "Midnight Black",
+    "Space Gray",
+    "Silver",
+    "Rose Gold",
+    "Ocean Blue",
+    "Ruby Red",
+    "Pine Green",
+    "Sapphire Blue",
+    "Crimson Red",
+    "Onyx Black"
+  ],
+
+  "prices": [
+    899.99, 149.99, 249.99, 799.99, 129.99, 299.99, 199.99, 79.99, 1099.99,
+    499.99
+  ],
+
+  "inStocks": [62, 84, 32, 95, 19, 74, 53, 69, 12, 45],
+  "sales": [34, 67, 98, 25, 89, 71, 17, 56, 41, 79, 61, 10],
+  "features": [
+    [
+      "13.3-inch Retina display",
+      "Apple M1 chip",
+      "8GB RAM",
+      "256GB SSD",
+      "Touch ID",
+      "Thunderbolt 3 ports"
+    ],
+    [
+      "Heart rate monitor",
+      "Step counter",
+      "Sleep tracking",
+      "Calorie tracker",
+      "Water resistant",
+      "GPS"
+    ],
+    [
+      "Active noise cancellation",
+      "20-hour battery life",
+      "Bluetooth 5.0",
+      "Touch controls",
+      "Foldable design",
+      "Built-in mic"
+    ],
+    [
+      "1.4-inch AMOLED display",
+      "Fitness tracking",
+      "Voice assistant",
+      "Sleep tracking",
+      "Water resistant",
+      "Bluetooth 5.0"
+    ],
+    [
+      "360-degree sound",
+      "IPX7 waterproof rating",
+      "12-hour battery life",
+      "Built-in voice assistant",
+      "PartyBoost feature",
+      "Multi-point pairing"
+    ],
+    [
+      "24.2-megapixel APS-C sensor",
+      "4K video recording",
+      "Built-in flash",
+      "Bluetooth and Wi-Fi connectivity",
+      "180-degree tilt touchscreen",
+      "Creative Assist mode"
+    ],
+    [
+      "Active noise cancellation",
+      "Wireless charging",
+      "24-hour battery life",
+      "IPX7 waterproof rating",
+      "Bluetooth 5.0",
+      "Touch controls"
+    ],
+    [
+      "20,000 DPI optical sensor",
+      "11 programmable buttons",
+      "100-hour battery life",
+      "RGB lighting",
+      "Lightweight design",
+      "Onboard memory"
+    ],
+    [
+      "65-inch 4K UHD display",
+      "Android TV OS",
+      "Dolby Vision and Atmos",
+      "Chromecast built-in",
+      "Voice remote with Google Assistant",
+      "Bluetooth and Wi-Fi connectivity"
+    ],
+    [
+      "10.4-inch WUXGA display",
+      "Exynos 9611 processor",
+      "64GB internal storage",
+      "4GB RAM",
+      "S Pen support",
+      "7040mAh battery"
+    ]
+  ],
+  "ratings": [4.3, 3.2, 4.7, 4.1, 4.8, 3.3, 4.6, 3.8, 4.2, 4.5],
+  "lastUpdatedDates": [
+    "2022-04-30",
+    "2022-03-22",
+    "2022-05-01",
+    "2022-02-14",
+    "2022-04-15",
+    "2022-03-07",
+    "2022-05-02",
+    "2022-01-29",
+    "2022-04-18",
+    "2022-02-22"
+  ],
+  "categories": [
+    "Smartphones",
+    "Tablets",
+    "Wearables",
+    "Accessories",
+    "Laptops",
+    "Desktops",
+    "Monitors"
+  ]
 }
