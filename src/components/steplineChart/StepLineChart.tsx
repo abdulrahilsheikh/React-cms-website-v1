@@ -85,7 +85,7 @@ const StepLineChart = ({}: Props) => {
       color: chartTimeFrame == "Weekly" ? "#a1a1aa" : "#DDEF7Bff",
     },
   ];
-  const options = {
+  const options: any = {
     chart: {
       id: "basic-bar",
     },
