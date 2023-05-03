@@ -1,8 +1,12 @@
-const Item = ({ data }: any) => (
-  <li>
+import { useEffect, useState } from "react";
+
+const Item = ({ data, active, clickHandler }: any) => (
+  <li onClick={clickHandler}>
     <a
       href="#"
-      className="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+      className={`flex items-center justify-center px-3 py-2 text-sm leading-tight ${
+        active ? "text-blue-500 bg-blue-200" : "text-gray-500 bg-white"
+      } border border-gray-300 hover:bg-blue-200 hover:text-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}
     >
       {/* ... */}
       {data}
@@ -10,28 +14,87 @@ const Item = ({ data }: any) => (
   </li>
 );
 
-export const PaginationFooter = ({ totalPages, currentPage }: any) => {
-  const temp = [];
-  for (let i = 1; i < totalPages + 1; i++) {
-    temp.push(i);
-  }
-  const List = [];
-  for (let i of temp.slice(0, 3)) {
-    List.push(<Item key={i} data={i} />);
-  }
-  for (let i of temp.slice(currentPage - 1, currentPage + 2)) {
-    if (i > 3) {
-      List.push(<Item key={i} data={i} />);
-    } else {
-      List.push(<Item key={i} data={"..."} />);
+export const PaginationFooter = ({
+  totalPages,
+  currentPage,
+  siblingsCount = 1,
+  setPage,
+
+  boundaries,
+}: any) => {
+  console.log(currentPage);
+  const [List, setList] = useState<any>([]);
+
+  const generateList = () => {
+    const temp = [];
+    for (let i = 1; i < totalPages + 1; i++) {
+      temp.push(i);
     }
-  }
-  for (let i of temp.slice(-3)) {
-    List.push(<Item key={i} data={i} />);
-  }
+    const List: any = [];
+    if (boundaries * 2 + siblingsCount * 2 + 1 >= totalPages) {
+      setList(temp);
+      return;
+    }
+    if (totalPages < 10) {
+      setList(temp);
+      return List;
+    }
+    for (let i of temp.slice(0, boundaries)) {
+      List.push(i);
+    }
+    // check left
+
+    const leftCount = currentPage - siblingsCount - boundaries;
+    const rightCount =
+      totalPages - (currentPage + siblingsCount + boundaries - 1);
+    if (leftCount <= 0) {
+      for (let i of temp.slice(boundaries, boundaries + siblingsCount + 1)) {
+        List.push(i);
+      }
+    } else {
+      List.push("...");
+    }
+    if (leftCount > 0 && rightCount > 0) {
+      for (let i of temp.slice(
+        currentPage - siblingsCount,
+        currentPage + siblingsCount - 1
+      )) {
+        List.push(i);
+      }
+    }
+    if (rightCount <= 0) {
+      for (let i of temp.slice(-boundaries - siblingsCount - 1, -boundaries)) {
+        List.push(i);
+      }
+    } else {
+      List.push("...");
+    }
+    for (let i of temp.slice(-boundaries)) {
+      List.push(i);
+    }
+    setList(List);
+  };
+  const handlePaginate = (direction: number) => {
+    if (direction > 0) {
+      if (currentPage == totalPages) {
+        setPage(1);
+      } else {
+        setPage(currentPage + direction);
+      }
+    } else {
+      if (currentPage == 1) {
+        setPage(totalPages);
+      } else {
+        setPage(currentPage + direction);
+      }
+    }
+  };
+  useEffect(() => {
+    generateList();
+  }, [totalPages, currentPage]);
   return (
     <ul className="inline-flex items-stretch -space-x-px">
-      <li>
+      <li onClick={() => handlePaginate(-1)}>
         <span className="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
           <span className="sr-only">Previous</span>
           <svg
@@ -49,8 +112,14 @@ export const PaginationFooter = ({ totalPages, currentPage }: any) => {
           </svg>
         </span>
       </li>
-      {List}
-      <li>
+      {List.map((item: any) => (
+        <Item
+          data={item}
+          clickHandler={() => item != "..." && setPage(item)}
+          active={item == currentPage}
+        />
+      ))}
+      <li onClick={() => handlePaginate(1)}>
         <span className="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
           <span className="sr-only">Next</span>
           <svg

@@ -33,7 +33,7 @@ const Table2 = ({}: Props) => {
   const [items, setItems] = useState<Product[]>([]);
   const ref = useRef({ current: 1, pageSize: 10 });
   console.log(data);
-
+  const [pageNo, setPageNo] = useState(1);
   const paginate = (items: any, pageSize: any, currentPage: any) => {
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -42,8 +42,8 @@ const Table2 = ({}: Props) => {
     setItems(paginatedItems);
   };
   useEffect(() => {
-    paginate(data, ref.current.pageSize, ref.current.current);
-  }, [ref.current.current, ref.current.pageSize, data]);
+    paginate(data, ref.current.pageSize, pageNo);
+  }, [pageNo, ref.current.pageSize, data]);
 
   // const generatePagination = (pageSize: number
 
@@ -358,7 +358,13 @@ const Table2 = ({}: Props) => {
                 </a>
               </li>
             </ul> */}
-            <PaginationFooter totalPages={10} currentPage={1} />
+            <PaginationFooter
+              setPage={setPageNo}
+              totalPages={Math.ceil(data.length / ref.current.pageSize)}
+              currentPage={pageNo}
+              siblingsCount={2}
+              boundaries={2}
+            />
           </nav>
         </div>
       </div>
