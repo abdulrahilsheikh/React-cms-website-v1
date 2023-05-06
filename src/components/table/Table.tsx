@@ -28,7 +28,7 @@ function getStockAvailability(stock: any) {
 
 type Props = {};
 
-const Table2 = ({}: Props) => {
+const Table = ({}: Props) => {
   const [data] = useProductGenerator();
   const [items, setItems] = useState<Product[]>([]);
   const ref = useRef({ current: 1, pageSize: 10 });
@@ -372,4 +372,4 @@ const Table2 = ({}: Props) => {
   );
 };
 
-export default Table2;
+export default Table;

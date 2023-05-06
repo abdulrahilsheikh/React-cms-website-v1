@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
-const Table2 = lazy(() => import("../../components/table/Table2"));
+const Table2 = lazy(() => import("../../components/table/Table"));
 
 type Props = {};
 
