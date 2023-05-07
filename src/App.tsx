@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
-import Comapny from "./outlets/company/Comapny";
+import Sales from "./outlets/sales/Sales";
 import Investment from "./outlets/investment/Investment";
 import MainPage from "./pages/mainPage/MainPage";
+import Sellers from "./outlets/sellers/Sellers";
 
 function App() {
   const router = createBrowserRouter(
@@ -31,12 +32,16 @@ function App() {
             element: <Investment />,
           },
           {
-            path: "company",
-            element: <Comapny />,
+            path: "sales",
+            element: <Sales />,
+          },
+          {
+            path: "sellers",
+            element: <Sellers />,
           },
           {
             path: "*",
-            element: <div>100</div>,
+            element: <Investment />,
           },
         ],
       },

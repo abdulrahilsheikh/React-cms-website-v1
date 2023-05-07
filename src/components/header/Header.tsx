@@ -14,14 +14,14 @@ const Variant = () =>
 
 const headerTabs: any = {
   investment: 1,
-  company: 2,
-  candidates: 3,
+  sales: 2,
+  sellers: 3,
 };
 
 const options = [
   { value: 1, lable: "Investment" },
-  { value: 2, lable: "Company" },
-  { value: 3, lable: "Candidates" },
+  { value: 2, lable: "Sales" },
+  { value: 3, lable: "Sellers" },
 ];
 const Header = ({}: Props) => {
   const url = useLocation();

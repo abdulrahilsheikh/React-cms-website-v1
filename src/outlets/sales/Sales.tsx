@@ -1,10 +1,10 @@
 import { lazy, Suspense } from "react";
 import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
-const Table2 = lazy(() => import("../../components/table/Table"));
+const Table = lazy(() => import("../../components/table/Table"));
 
 type Props = {};
 
-const Comapny = ({}: Props) => {
+const Sales = ({}: Props) => {
   return (
     <div>
       <Suspense
@@ -14,10 +14,10 @@ const Comapny = ({}: Props) => {
           </div>
         }
       >
-        <Table2 />
+        <Table />
       </Suspense>
     </div>
   );
 };
 
-export default Comapny;
+export default Sales;

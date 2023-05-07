@@ -1,15 +1,7 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
-import { UnderScore } from "../underScore/UnderScore";
+import { UnderLine } from "../steplineChart/steplineChart";
 type Props = {};
-const TimeFrameList = ["Daily", "Weekly", "Monthly", "Yearly"];
-export const UnderLine = ({ id }: any) => (
-  <UnderScore
-    className="absolute bottom-0 w-full h-0.5"
-    style={{ backgroundColor: "black", borderRadius: "5px" }}
-    layoutId={id ? id : "timeframe-id"}
-  />
-);
 
 const chartData: any = {
   Monthly: {
@@ -25,7 +17,6 @@ const chartData: any = {
       "September",
       "October",
     ],
-    yaxis: [30, 40, 45, 50, 49, 60, 70, 91, 80, 55],
   },
   Weekly: {
     xaxis: [
@@ -40,7 +31,6 @@ const chartData: any = {
       "9th",
       "10th",
     ],
-    yaxis: [30, 70, 91, 80, 55, 40, 45, 50, 49, 60],
   },
   Yearly: {
     xaxis: [
@@ -55,7 +45,6 @@ const chartData: any = {
       "2016",
       "2018",
     ],
-    yaxis: [30, 55, 40, 45, 70, 91, 80, 50, 49, 60],
   },
   Daily: {
     xaxis: [
@@ -70,19 +59,51 @@ const chartData: any = {
       "9th",
       "10th",
     ],
-    yaxis: [30, 55, 40, 45, 70, 91, 80, 50, 49, 60],
   },
 };
+const TimeFrameList = ["Daily", "Weekly", "Monthly", "Yearly"];
 
-const StepLineChart = ({}: Props) => {
+function getRandomColor(colors: string[]) {
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
+}
+const Sales = ({ activeSeller }: any) => {
+  const [series, setSeries] = useState<any[]>([]);
   const [chartTimeFrame, setChartTimeFrame] = useState<any>("Weekly");
+  function generateSalesData(
+    numOfBars: number,
+    minSales: number,
+    maxSales: number
+  ) {
+    const list: any = [];
+    const temp = () => {
+      let data = [];
+      for (let i = 0; i < numOfBars; i++) {
+        let sales = Math.floor(
+          Math.random() * (maxSales - minSales + 1) + minSales
+        );
+        data.push(sales);
+      }
+      return data;
+    };
+    for (let i = 0; i < 5; i++) {
+      list.push(temp());
+    }
+    setSeries(list);
+  }
 
-  const series = [
+  const seriesObject = [
     {
       name: "series-1",
       type: "area",
-      data: chartData[chartTimeFrame].yaxis,
-      color: chartTimeFrame == "Weekly" ? "#a1a1aa" : "#DDEF7Bff",
+      data: series[TimeFrameList.findIndex((a) => a == chartTimeFrame)],
+      color: getRandomColor([
+        "#f56565",
+        "#48bb78",
+        "#4299e1",
+        "#9f7aea",
+        "#f6e05e",
+      ]),
     },
   ];
   const options: any = {
@@ -90,13 +111,21 @@ const StepLineChart = ({}: Props) => {
       id: "basic-bar",
     },
     stroke: {
-      curve: "stepline",
+      curve: "smooth",
       colors: ["#000000"],
     },
     fill: {
       type: "solid",
       opacity: [0.35, 1],
-      colors: ["#DDEF7Bff", "#a1a1aa"],
+      colors: [
+        "#DDEF7Bff",
+        "#a1a1aa",
+        "#f56565",
+        "#48bb78",
+        "#4299e1",
+        "#9f7aea",
+        "#f6e05e",
+      ],
     },
     xaxis: {
       categories: chartData[chartTimeFrame].xaxis,
@@ -106,22 +135,18 @@ const StepLineChart = ({}: Props) => {
     },
     yaxis: {
       title: {
-        text: "Invested",
+        text: "Sales",
       },
     },
     dataLabels: {
       enabled: false,
     },
   };
-
+  useEffect(() => {
+    generateSalesData(10, 100, 250);
+  }, [activeSeller]);
   return (
-    <div className="p-2 shadow rounded-xl shadow-zinc-400 ">
-      <div className="px-4 flex justify-between mb-4 mt-2">
-        <div className="text-xl font-bold">Investment Overview</div>
-        <div>
-          last updated <span className="text-gray-600">Today</span>
-        </div>
-      </div>
+    <div className="p-4 flex flex-col gap-4">
       <div className="flex px-4 gap-6 font-semibold ">
         {TimeFrameList.map((a) => (
           <div
@@ -134,19 +159,20 @@ const StepLineChart = ({}: Props) => {
           </div>
         ))}
       </div>
-
-      {
-        ///@ts-ignore
-        <Chart
-          key={chartTimeFrame}
-          options={options}
-          series={series}
-          type="area"
-          height={350}
-        />
-      }
+      <div className="shadow-lg rounded">
+        {
+          ///@ts-ignore
+          <Chart
+            key={chartTimeFrame}
+            options={options}
+            series={seriesObject}
+            type="line"
+            height={350}
+          />
+        }
+      </div>
     </div>
   );
 };
 
-export default StepLineChart;
+export default Sales;
