@@ -1,6 +1,9 @@
 import { useGenerateRandoListFromJson } from "../../hooks/useGeneratedMockData";
 import { AvatarComponent } from "../avatar/avatar";
 import * as Customers from "../../../public/clients_list.json";
+import Modal from "../modal/Modal";
+import AddNewClient from "../forms/AddNewClient";
+import { useState } from "react";
 
 type Props = {};
 const taskTypes = ["Done", "Unpaid", "Completed", "Paid"];
@@ -25,9 +28,14 @@ const colorList: any = {
 const CustomerTable = ({}: Props) => {
   const [data] = useGenerateRandoListFromJson(Customers);
   console.log(data);
-
+  const [isModalOpen, setIsmodalOpen] = useState(false);
   return (
-    <div className="sm:px-6 w-full">
+    <div className="sm:px-6 w-full h-full flex flex-col">
+      <Modal
+        element={<AddNewClient />}
+        isOpen={isModalOpen}
+        onClose={() => setIsmodalOpen(false)}
+      />
       <div className="px-4 md:px-10 py-4 md:py-7">
         <div className="flex items-center justify-between">
           <p className="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">
@@ -52,9 +60,9 @@ const CustomerTable = ({}: Props) => {
           </div>
         </div>
       </div>
-      <div className="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
+      <div className="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 flex-1 h-40 flex flex-col">
         <div className="sm:flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap">
             {taskTypes.map((item) => (
               <button className="rounded-full focus:outline-none focus:ring-2  focus:bg-indigo-50 focus:ring-indigo-800">
                 <div className="py-2 px-8 bg-indigo-100 text-indigo-700 rounded-full">
@@ -63,15 +71,18 @@ const CustomerTable = ({}: Props) => {
               </button>
             ))}
           </div>
-          <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+          <button
+            onClick={() => setIsmodalOpen(true)}
+            className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded"
+          >
             <p className="text-sm font-medium leading-none text-white">
-              Add Task
+              Add Client
             </p>
           </button>
         </div>
-        <div className="mt-7 overflow-x-auto">
-          <table className="w-full whitespace-nowrap">
-            <thead>
+        <div className="mt-7 overflow-auto flex-1">
+          <table className="w-full whitespace-nowrap border-none border-0 relative">
+            <thead className="sticky -top-1 bg-white z-10 border-none border-0">
               <tr
                 tabIndex={0}
                 className="focus:outline-none h-16 border border-gray-100 rounded"
@@ -97,7 +108,7 @@ const CustomerTable = ({}: Props) => {
                 <th className="pl-5">
                   <div className="flex items-center">
                     <h2 className="text-base  leading-none text-gray-700 mr-2">
-                      Sprints
+                      Order
                     </h2>
                   </div>
                 </th>
@@ -105,6 +116,27 @@ const CustomerTable = ({}: Props) => {
                   <div className="flex items-center">
                     <h2 className="text-base  leading-none text-gray-700 mr-2">
                       Due Date
+                    </h2>
+                  </div>
+                </th>
+                <th className="pl-4">
+                  <div className="flex items-center">
+                    <h2 className="text-base  leading-none text-gray-700 mr-2">
+                      Price
+                    </h2>
+                  </div>
+                </th>
+                <th className="pl-4">
+                  <div className="flex items-center">
+                    <h2 className="text-base  leading-none text-gray-700 mr-2">
+                      Payment
+                    </h2>
+                  </div>
+                </th>
+                <th className="pl-4">
+                  <div className="flex items-center">
+                    <h2 className="text-base  leading-none text-gray-700 mr-2">
+                      Status
                     </h2>
                   </div>
                 </th>
@@ -134,20 +166,19 @@ const CustomerTable = ({}: Props) => {
                       </div>
                     </div>
                   </td>
-                  <td>
-                    <div className="ml-5">
+
+                  <td className="">
+                    <div className="flex gap-2 items-center pl-5">
                       <AvatarComponent
                         link={item.profilePic}
                         fallBack={""}
                         alt={"img"}
                       />
-                    </div>
-                  </td>
-                  <td className="">
-                    <div className="flex items-center pl-5">
-                      <p className="text-base font-medium leading-none text-gray-700 mr-2">
-                        {item.name}
-                      </p>
+                      <div className="flex items-center pl-5">
+                        <p className="text-base font-medium leading-none text-gray-700 mr-2">
+                          {item.name}
+                        </p>
+                      </div>
                     </div>
                   </td>
                   <td className="pl-5">

@@ -23,7 +23,6 @@ export const useProductGenerator = () => {
     for (let i = 0; i < 100; i++) {
       temp.push(generateProduct(data));
     }
-    console.log(temp);
 
     setProducts(temp);
   };
@@ -88,7 +87,7 @@ export const useGenerateRandoListFromJson = (data: any) => {
     for (let i = 0; i < 100; i++) {
       temp.push(generateData(data, temp));
     }
-    console.log(temp);
+
     setList(temp);
   };
   const generateData = (data: any, list: any) => {
@@ -96,10 +95,7 @@ export const useGenerateRandoListFromJson = (data: any) => {
 
     Object.entries(data).forEach(([key, value]: any) => {
       let tempValue = value[Math.floor(Math.random() * value.length)];
-      console.log(1);
-
       if (list.length && list[list.length - 1][key]) {
-        console.log(2);
         while (tempValue == list[list.length - 1][key]) {
           tempValue = value[Math.floor(Math.random() * value.length)];
         }
@@ -113,5 +109,5 @@ export const useGenerateRandoListFromJson = (data: any) => {
   useEffect(() => {
     getData();
   }, []);
-  return [list];
+  return [list, setList];
 };

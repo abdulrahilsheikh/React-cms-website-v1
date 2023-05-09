@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Sales from "./outlets/sales/Sales";
 import Investment from "./outlets/investment/Investment";
-import MainPage from "./pages/mainPage/MainPage";
+import MainPage from "./pages/mainPage/DashboardMainPage";
 import Sellers from "./outlets/sellers/Sellers";
 import CustomerTable from "./components/table/CustomerTable";
 

@@ -26,7 +26,7 @@ const options = [
 const Header = ({}: Props) => {
   const url = useLocation();
   const navigation = useNavigate();
-  console.log(url.pathname.split("/"));
+
   const urlSplit = url.pathname.split("/");
   const tab = headerTabs[urlSplit[urlSplit.length - 1]];
   const [active, setActive] = useState(tab ? tab : 1);
@@ -38,7 +38,7 @@ const Header = ({}: Props) => {
   };
 
   return (
-    <div className="h-16 shadow-md flex items-center md:pl-4 px-4 pl-10">
+    <div className="h-16 shadow-md flex items-center md:pl-4 px-4 pl-10 w-full">
       <div className=" gap-6 h-full items-center relative hidden xsm:flex">
         {options.map((a, idx) => (
           <div

@@ -123,7 +123,7 @@ const SelectComponent = ({
       >
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="bg-white">
         {options.map((a: any) => (
           <SelectItem value={a.value}>{a.lable}</SelectItem>
         ))}
