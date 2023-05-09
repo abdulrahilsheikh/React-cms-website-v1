@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 import { UnderLine } from "../steplineChart/steplineChart";
-type Props = {};
 
 const chartData: any = {
   Monthly: {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import * as ProdutMaster from "../../public/company_table_data.json";
 export type Product = {
   name: string;
   price: number;
@@ -16,13 +17,8 @@ export type Product = {
 
 export const useProductGenerator = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const getTableData = async () => {
-    const res = await fetch(
-      import.meta.env.DEV
-        ? "../../company_table_data.json"
-        : "../../React-cms-website-v1/company_table_data.json"
-    );
-    const data = await res.json();
+  const getTableData = () => {
+    const data = ProdutMaster;
     const temp: any = [];
     for (let i = 0; i < 100; i++) {
       temp.push(generateProduct(data));
@@ -83,4 +79,39 @@ export const useProductGenerator = () => {
     getTableData();
   }, []);
   return [products, getTableData];
+};
+
+export const useGenerateRandoListFromJson = (data: any) => {
+  const [list, setList] = useState<unknown>([]);
+  const getData = () => {
+    const temp: any = [];
+    for (let i = 0; i < 100; i++) {
+      temp.push(generateData(data, temp));
+    }
+    console.log(temp);
+    setList(temp);
+  };
+  const generateData = (data: any, list: any) => {
+    const temp: any = {};
+
+    Object.entries(data).forEach(([key, value]: any) => {
+      let tempValue = value[Math.floor(Math.random() * value.length)];
+      console.log(1);
+
+      if (list.length && list[list.length - 1][key]) {
+        console.log(2);
+        while (tempValue == list[list.length - 1][key]) {
+          tempValue = value[Math.floor(Math.random() * value.length)];
+        }
+      }
+      temp[key] = tempValue;
+    });
+
+    return temp;
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+  return [list];
 };

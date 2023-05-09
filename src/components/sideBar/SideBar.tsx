@@ -5,8 +5,10 @@ import {
   HeartHandshakeIcon,
   Cog,
   Bell,
+  UsersIcon,
 } from "lucide-react";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { UnderScore } from "../underScore/UnderScore";
 
 type Props = {};
@@ -17,17 +19,24 @@ const Variant = () =>
     style: {},
   });
 const sidebarlist = [
-  { icon: <LayoutDashboardIcon />, lable: "Dashboard" },
-  { icon: <HeartHandshakeIcon />, lable: "Customer" },
-  { icon: <Bell />, lable: "Notification" },
-  { icon: <Cog />, lable: "Setting" },
+  { icon: <LayoutDashboardIcon />, lable: "Dashboard", link: "/dashboard" },
+  { icon: <HeartHandshakeIcon />, lable: "Customer", link: "/customers" },
+  { icon: <Bell />, lable: "Notification", link: "/notifications" },
+  { icon: <Cog />, lable: "Setting", link: "/setting" },
+  { icon: <UsersIcon />, lable: "Account", link: "/account" },
 ];
 const SideBar = ({}: Props) => {
+  const { pathname } = useLocation();
   const [isSideBarOpen, setIsSidebarOpen] = useState(false);
-  const [acitveTb, setActiveTab] = useState(0);
+  const acitveTbIndx = sidebarlist.findIndex((a) => pathname.includes(a.link));
+  const [acitveTb, setActiveTab] = useState(acitveTbIndx ?? 0);
+  const router = useNavigate();
   const sideBarClick = (tabIdx: number) => {
+    console.log(location);
+    router(sidebarlist[tabIdx].link);
     setActiveTab(tabIdx);
   };
+
   return (
     <>
       <div

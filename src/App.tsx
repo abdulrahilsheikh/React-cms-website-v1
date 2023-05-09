@@ -5,6 +5,7 @@ import Sales from "./outlets/sales/Sales";
 import Investment from "./outlets/investment/Investment";
 import MainPage from "./pages/mainPage/MainPage";
 import Sellers from "./outlets/sellers/Sellers";
+import CustomerTable from "./components/table/CustomerTable";
 
 function App() {
   const router = createBrowserRouter(
@@ -28,6 +29,10 @@ function App() {
         path: "/dashboard",
         children: [
           {
+            path: "",
+            element: <Investment />,
+          },
+          {
             path: "investment",
             element: <Investment />,
           },
@@ -44,6 +49,28 @@ function App() {
             element: <Investment />,
           },
         ],
+      },
+      {
+        element: <MainPage />,
+        path: "/customers",
+        children: [
+          {
+            path: "",
+            element: <CustomerTable />,
+          },
+        ],
+      },
+      {
+        element: <MainPage />,
+        path: "/notifications",
+      },
+      {
+        element: <MainPage />,
+        path: "/setting",
+      },
+      {
+        element: <MainPage />,
+        path: "/account",
       },
     ],
     { basename: "/React-cms-website-v1" }

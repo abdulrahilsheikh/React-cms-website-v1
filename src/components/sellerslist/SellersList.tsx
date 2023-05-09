@@ -1,21 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AvatarComponent } from "../avatar/avatar";
-
-type Props = {};
 
 const SellersList = ({ setActive }: any) => {
   const [sellers, setSellers] = useState([]);
-  const [items, setItems] = useState([]);
-  const ref = useRef({ current: 1, pageSize: 10 });
-
-  const [pageNo, setPageNo] = useState(1);
-  const paginate = (items: any, pageSize: any, currentPage: any) => {
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    const paginatedItems = items.slice(startIndex, endIndex);
-    console.log(paginatedItems);
-    setItems(paginatedItems);
-  };
 
   const getSellersData = async () => {
     const res = await fetch(
@@ -30,9 +17,7 @@ const SellersList = ({ setActive }: any) => {
   useEffect(() => {
     getSellersData();
   }, []);
-  useEffect(() => {
-    paginate(sellers, ref.current.pageSize, pageNo);
-  }, [pageNo, ref.current.pageSize, sellers]);
+
   function getRandomColor(colors: string[]) {
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];

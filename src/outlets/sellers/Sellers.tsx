@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { AvatarComponent } from "../../components/avatar/avatar";
+import { useState } from "react";
 import Sales from "../../components/sales/Sales";
 import SellersList from "../../components/sellerslist/SellersList";
 
 type Props = {};
 
-const Sellers = (props: Props) => {
+const Sellers = ({}: Props) => {
   const [activeSeller, setActiveSeller] = useState<number>(-1);
   return (
     <div className="flex w-full max-h-full">
