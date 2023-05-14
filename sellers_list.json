@@ -1,127 +1,129 @@
-[
-  {
-    "location": "New York",
-    "name": "Big Apple Brokers",
-    "shortName": "BB"
-  },
-  {
-    "location": "Los Angeles",
-    "name": "La La Land Sales",
-    "shortName": "LL"
-  },
-  {
-    "location": "Houston",
-    "name": "Space Sales",
-    "shortName": "SS"
-  },
-  {
-    "location": "Miami",
-    "name": "Magic Merchants",
-    "shortName": "MM"
-  },
-  {
-    "location": "Seattle",
-    "name": "Sound Sellers",
-    "shortName": "SS"
-  },
-  {
-    "location": "Denver",
-    "name": "Rocky Roadies",
-    "shortName": "RR"
-  },
-  {
-    "location": "Portland",
-    "name": "Pineapple Peddlers",
-    "shortName": "PP"
-  },
-  {
-    "location": "Tampa Bay",
-    "name": "Bay Traders",
-    "shortName": "BT"
-  },
-  {
-    "location": "Chicago",
-    "name": "Windy City Wholesalers",
-    "shortName": "WC"
-  },
-  {
-    "location": "Nashville",
-    "name": "Music Market",
-    "shortName": "MM"
-  },
-  {
-    "location": "San Francisco",
-    "name": "Golden Gate Goods",
-    "shortName": "GG"
-  },
-  {
-    "location": "Phoenix",
-    "name": "Firebird Faire",
-    "shortName": "FF"
-  },
-  {
-    "location": "Austin",
-    "name": "Live Music Merchants",
-    "shortName": "LM"
-  },
-  {
-    "location": "San Diego",
-    "name": "Sandstone Sales",
-    "shortName": "SS"
-  },
-  {
-    "location": "Charlotte",
-    "name": "Carolina Commerce",
-    "shortName": "CC"
-  },
-  {
-    "location": "Atlanta",
-    "name": "Peachtree Partners",
-    "shortName": "PP"
-  },
-  {
-    "location": "Boston",
-    "name": "Baked Bean Brokers",
-    "shortName": "BB"
-  },
-  {
-    "location": "Kansas City",
-    "name": "KC Connect",
-    "shortName": "KC"
-  },
-  {
-    "location": "Dallas",
-    "name": "Lone Star Sales",
-    "shortName": "LS"
-  },
-  {
-    "location": "Salt Lake City",
-    "name": "Sundance Sellers",
-    "shortName": "SS"
-  },
-  {
-    "location": "Philadelphia",
-    "name": "Philly Frenzy",
-    "shortName": "PF"
-  },
-  {
-    "location": "Las Vegas",
-    "name": "Sin City Sales",
-    "shortName": "SS"
-  },
-  {
-    "location": "San Antonio",
-    "name": "Alamo Associates",
-    "shortName": "AA"
-  },
-  {
-    "location": "Minneapolis",
-    "name": "Twin Cities Traders",
-    "shortName": "TC"
-  },
-  {
-    "location": "Orlando",
-    "name": "Mickey's Marketplace",
-    "shortName": "MM"
-  }
-]
+{
+  "sellers": [
+    {
+      "location": "New York",
+      "name": "Big Apple Brokers",
+      "shortName": "BB"
+    },
+    {
+      "location": "Los Angeles",
+      "name": "La La Land Sales",
+      "shortName": "LL"
+    },
+    {
+      "location": "Houston",
+      "name": "Space Sales",
+      "shortName": "SS"
+    },
+    {
+      "location": "Miami",
+      "name": "Magic Merchants",
+      "shortName": "MM"
+    },
+    {
+      "location": "Seattle",
+      "name": "Sound Sellers",
+      "shortName": "SS"
+    },
+    {
+      "location": "Denver",
+      "name": "Rocky Roadies",
+      "shortName": "RR"
+    },
+    {
+      "location": "Portland",
+      "name": "Pineapple Peddlers",
+      "shortName": "PP"
+    },
+    {
+      "location": "Tampa Bay",
+      "name": "Bay Traders",
+      "shortName": "BT"
+    },
+    {
+      "location": "Chicago",
+      "name": "Windy City Wholesalers",
+      "shortName": "WC"
+    },
+    {
+      "location": "Nashville",
+      "name": "Music Market",
+      "shortName": "MM"
+    },
+    {
+      "location": "San Francisco",
+      "name": "Golden Gate Goods",
+      "shortName": "GG"
+    },
+    {
+      "location": "Phoenix",
+      "name": "Firebird Faire",
+      "shortName": "FF"
+    },
+    {
+      "location": "Austin",
+      "name": "Live Music Merchants",
+      "shortName": "LM"
+    },
+    {
+      "location": "San Diego",
+      "name": "Sandstone Sales",
+      "shortName": "SS"
+    },
+    {
+      "location": "Charlotte",
+      "name": "Carolina Commerce",
+      "shortName": "CC"
+    },
+    {
+      "location": "Atlanta",
+      "name": "Peachtree Partners",
+      "shortName": "PP"
+    },
+    {
+      "location": "Boston",
+      "name": "Baked Bean Brokers",
+      "shortName": "BB"
+    },
+    {
+      "location": "Kansas City",
+      "name": "KC Connect",
+      "shortName": "KC"
+    },
+    {
+      "location": "Dallas",
+      "name": "Lone Star Sales",
+      "shortName": "LS"
+    },
+    {
+      "location": "Salt Lake City",
+      "name": "Sundance Sellers",
+      "shortName": "SS"
+    },
+    {
+      "location": "Philadelphia",
+      "name": "Philly Frenzy",
+      "shortName": "PF"
+    },
+    {
+      "location": "Las Vegas",
+      "name": "Sin City Sales",
+      "shortName": "SS"
+    },
+    {
+      "location": "San Antonio",
+      "name": "Alamo Associates",
+      "shortName": "AA"
+    },
+    {
+      "location": "Minneapolis",
+      "name": "Twin Cities Traders",
+      "shortName": "TC"
+    },
+    {
+      "location": "Orlando",
+      "name": "Mickey's Marketplace",
+      "shortName": "MM"
+    }
+  ]
+}
