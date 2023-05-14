@@ -6,6 +6,10 @@ import Investment from "./outlets/investment/Investment";
 import MainPage from "./pages/mainPage/DashboardMainPage";
 import Sellers from "./outlets/sellers/Sellers";
 import CustomerTable from "./components/table/CustomerTable";
+import Subscription from "./outlets/subscription/Subscription";
+import Message from "./outlets/messages/Messages";
+import Settings from "./outlets/settings/Settings";
+import Accounts from "./outlets/accounts/Accounts";
 
 function App() {
   const router = createBrowserRouter(
@@ -62,15 +66,23 @@ function App() {
       },
       {
         element: <MainPage />,
-        path: "/notifications",
+        path: "/messages",
+        children: [{ path: "", element: <Message /> }],
+      },
+      {
+        element: <MainPage />,
+        path: "/subscription",
+        children: [{ path: "", element: <Subscription /> }],
       },
       {
         element: <MainPage />,
         path: "/setting",
+        children: [{ path: "", element: <Settings /> }],
       },
       {
         element: <MainPage />,
         path: "/account",
+        children: [{ path: "", element: <Accounts /> }],
       },
     ],
     { basename: "/React-cms-website-v1" }

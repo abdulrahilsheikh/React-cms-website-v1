@@ -1,3 +1,10 @@
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  BanknoteIcon,
+  CurrencyIcon,
+  DollarSignIcon,
+} from "lucide-react";
 import { lazy, Suspense } from "react";
 import InfoCard from "../../components/infoCard/InfoCard";
 import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
@@ -94,9 +101,47 @@ const Investment = ({}: Props) => {
     <div className="flex-1 h-full  grid grid-cols-[1fr_auto]">
       <div>
         <div className="flex justify-between gap-2 px-2 py-4 ">
-          <InfoCard />
-          <InfoCard />
-          <InfoCard />
+          <InfoCard
+            text={"Budget"}
+            icon={<DollarSignIcon />}
+            update={"24 hrs ago"}
+            status={
+              <div>
+                <div className="text-[yellowgreen] flex">
+                  <ArrowUpIcon /> 5%
+                </div>
+              </div>
+            }
+            value={"24"}
+          />
+          <InfoCard
+            text={"Investment"}
+            icon={<BanknoteIcon />}
+            update={"14 hrs ago"}
+            status={
+              <div>
+                <div className="text-red-500 flex">
+                  <ArrowDownIcon /> 2%
+                </div>
+              </div>
+            }
+            color="bg-green-400"
+            value={"150"}
+          />
+          <InfoCard
+            text={"Investment"}
+            icon={<CurrencyIcon />}
+            update={"15 mins ago"}
+            color="bg-blue-400"
+            status={
+              <div>
+                <div className="text-[yellowgreen] flex">
+                  <ArrowUpIcon /> 12%
+                </div>
+              </div>
+            }
+            value={"18"}
+          />
         </div>
         <div className="px-2 py-4 ">
           <Suspense

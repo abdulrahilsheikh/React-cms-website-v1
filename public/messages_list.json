@@ -1,0 +1,77 @@
+{
+  "messageContent": {
+    "taskContents": [
+      {
+        "title": "Request for Collaboration",
+        "content": "Hello team, I would like to collaborate on a new project idea. Let's schedule a meeting to discuss the details and potential next steps. Looking forward to your input!"
+      },
+      {
+        "title": "Holiday Office Closure",
+        "content": "Dear team, please note that our office will be closed on Monday, July 5th, in observance of the Independence Day holiday. Enjoy your long weekend!"
+      },
+      {
+        "title": "Training Workshop Registration",
+        "content": "Attention all employees, registration is now open for the upcoming training workshop on advanced marketing strategies. Secure your spot by filling out the registration form. Limited seats available!"
+      },
+      {
+        "title": "Update on IT System Upgrade",
+        "content": "Hi everyone, just a quick update on the ongoing IT system upgrade. The migration process is in progress, and we expect minimal disruption during this time. We appreciate your patience and cooperation."
+      },
+      {
+        "title": "Volunteer Opportunity: Local Charity Event",
+        "content": "Dear colleagues, we have a volunteering opportunity at the local charity event this weekend. Help make a difference in the community by signing up for a volunteer slot. Let's contribute to a worthy cause!"
+      },
+      {
+        "title": "Reminder: Employee Survey",
+        "content": "This is a gentle reminder to complete the employee survey. Your feedback is invaluable in shaping our workplace environment and policies. The survey will remain open until the end of the week."
+      },
+      {
+        "title": "Team Building Activity: Escape Room Challenge",
+        "content": "Attention all team members, get ready for an exciting team-building challenge! We will be participating in an Escape Room activity next Friday. Come prepared for some mind-bending puzzles and teamwork!"
+      },
+      {
+        "title": "Welcome New Interns",
+        "content": "Please join me in welcoming our new group of interns who will be joining our team next week. Let's extend a warm welcome and provide any necessary support during their onboarding process."
+      },
+      {
+        "title": "Training Session: Effective Communication",
+        "content": "Hi team, we have organized a training session on effective communication skills. The session will cover strategies for clear and impactful communication. Mark your calendars for the upcoming session!"
+      },
+      {
+        "title": "Reminder: Expense Report Submission",
+        "content": "A friendly reminder to submit your expense reports for the previous month. Please ensure all receipts and relevant documentation are attached. Let's maintain accurate records and timely reimbursements."
+      },
+      {
+        "title": "Regarding tomorrow's meeting",
+        "content": "Hello team, I wanted to discuss the agenda and expectations for tomorrow's meeting. Let's make sure we are all prepared. Thank you!"
+      },
+      {
+        "title": "URGENT: Server Maintenance",
+        "content": "Attention all employees, we will be performing server maintenance tonight between 10 PM and 2 AM. Expect intermittent service disruptions. We apologize for any inconvenience caused."
+      },
+      {
+        "title": "Congratulatory Message",
+        "content": "Dear John, congratulations on your outstanding performance this quarter. Your dedication and hard work have been noticed and appreciated. Keep up the excellent work!"
+      },
+      {
+        "title": "Important Reminder: Project Deadline",
+        "content": "Hello team, this is a friendly reminder that the deadline for Project X is approaching fast. Please ensure that all tasks are completed and submitted by the end of the week. Let's deliver a successful project!"
+      },
+      {
+        "title": "Company Event: Summer Picnic",
+        "content": "Mark your calendars! Our annual summer picnic will take place on Saturday, June 15th, at the local park. Don't miss this opportunity to relax, bond with colleagues, and enjoy delicious food. We look forward to seeing you there!"
+      }
+    ],
+    "severities": ["Low", "Medium", "High", "Critical"]
+  },
+  "cardData": {
+    "profilePic": [
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    ]
+  }
+}

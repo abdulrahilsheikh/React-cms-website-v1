@@ -1,12 +1,12 @@
+import { useEffect, useState } from "react";
+import * as Customers from "../../../public/clients_list.json";
 import { useGenerateRandoListFromJson } from "../../hooks/useGeneratedMockData";
 import { AvatarComponent } from "../avatar/avatar";
-import * as Customers from "../../../public/clients_list.json";
-import Modal from "../modal/Modal";
 import AddNewClient from "../forms/AddNewClient";
-import { useState } from "react";
+import Modal from "../modal/Modal";
 
 type Props = {};
-const taskTypes = ["Done", "Unpaid", "Completed", "Paid"];
+const taskTypes = ["All", "Completed", "Incomplete", "Pending", "Paid"];
 
 interface IClientData {
   name: string;
@@ -22,13 +22,39 @@ interface IClientData {
 const colorList: any = {
   Completed: "text-green-700 bg-green-100",
   Incomplete: "text-red-700 bg-red-100",
-  Pending: "text-green-700 bg-green-100",
-  Paid: "text-red-700 bg-red-100",
+  Pending: "text-red-700 bg-red-100",
+  Paid: "text-green-700 bg-green-100",
 };
 const CustomerTable = ({}: Props) => {
-  const [data] = useGenerateRandoListFromJson(Customers);
+  const [data] = useGenerateRandoListFromJson(Customers, 100, false);
   console.log(data);
+  const [list, setList] = useState([]);
   const [isModalOpen, setIsmodalOpen] = useState(false);
+  const filterList = (filter: string) => {
+    switch (filter) {
+      case "All":
+        setList(data);
+        break;
+      case "Completed":
+        setList(data.filter((item: any) => item.status == "Completed"));
+        break;
+      case "Pending":
+        setList(data.filter((item: any) => item.paymentStatus == "Pending"));
+        break;
+      case "Paid":
+        setList(data.filter((item: any) => item.paymentStatus == "Paid"));
+        break;
+      case "Incomplete":
+        setList(data.filter((item: any) => item.status == "Incomplete"));
+        break;
+
+      default:
+        break;
+    }
+  };
+  useEffect(() => {
+    setList(data);
+  }, [data]);
   return (
     <div className="sm:px-6 w-full h-full flex flex-col">
       <Modal
@@ -64,7 +90,10 @@ const CustomerTable = ({}: Props) => {
         <div className="sm:flex items-center justify-between">
           <div className="flex items-center gap-4 flex-wrap">
             {taskTypes.map((item) => (
-              <button className="rounded-full focus:outline-none focus:ring-2  focus:bg-indigo-50 focus:ring-indigo-800">
+              <button
+                onClick={() => filterList(item)}
+                className="rounded-full focus:outline-none focus:ring-2  focus:bg-indigo-50 focus:ring-indigo-800"
+              >
                 <div className="py-2 px-8 bg-indigo-100 text-indigo-700 rounded-full">
                   <p>{item}</p>
                 </div>
@@ -150,7 +179,7 @@ const CustomerTable = ({}: Props) => {
               </tr>
             </thead>
             <tbody>
-              {(data as IClientData[]).slice(0, 20).map((item) => (
+              {(list as IClientData[]).map((item) => (
                 <tr
                   tabIndex={0}
                   className="focus:outline-none h-16 border border-gray-100 rounded"

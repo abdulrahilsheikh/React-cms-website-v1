@@ -79,35 +79,39 @@ export const useProductGenerator = () => {
   }, []);
   return [products, getTableData];
 };
+export function generateData(data: any, list: any, check = true) {
+  const temp: any = {};
 
-export const useGenerateRandoListFromJson = (data: any) => {
+  Object.entries(data).forEach(([key, value]: any) => {
+    let tempValue = value[Math.floor(Math.random() * value.length)];
+    if (check && list.length && list[list.length - 1][key]) {
+      while (tempValue == list[list.length - 1][key]) {
+        tempValue = value[Math.floor(Math.random() * value.length)];
+      }
+    }
+    temp[key] = tempValue;
+  });
+
+  return temp;
+}
+
+export const useGenerateRandoListFromJson = (
+  data: any,
+  items = 100,
+  check = true
+): [any, any, any] => {
   const [list, setList] = useState<unknown>([]);
-  const getData = () => {
+  const getData = (data: any, items: number, check: boolean): any => {
     const temp: any = [];
-    for (let i = 0; i < 100; i++) {
-      temp.push(generateData(data, temp));
+    for (let i = 0; i < items; i++) {
+      temp.push(generateData(data, temp, check));
     }
 
     setList(temp);
   };
-  const generateData = (data: any, list: any) => {
-    const temp: any = {};
-
-    Object.entries(data).forEach(([key, value]: any) => {
-      let tempValue = value[Math.floor(Math.random() * value.length)];
-      if (list.length && list[list.length - 1][key]) {
-        while (tempValue == list[list.length - 1][key]) {
-          tempValue = value[Math.floor(Math.random() * value.length)];
-        }
-      }
-      temp[key] = tempValue;
-    });
-
-    return temp;
-  };
 
   useEffect(() => {
-    getData();
+    getData(data, items, check);
   }, []);
-  return [list, setList];
+  return [list, generateData, setList];
 };

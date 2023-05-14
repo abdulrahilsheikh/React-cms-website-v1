@@ -1,13 +1,14 @@
 import {
+  Cog,
+  Flower,
+  HeartHandshakeIcon,
+  LayoutDashboardIcon,
+  Mail,
   SidebarCloseIcon,
   SidebarOpenIcon,
-  LayoutDashboardIcon,
-  HeartHandshakeIcon,
-  Cog,
-  Bell,
   UsersIcon,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UnderScore } from "../underScore/UnderScore";
 
@@ -21,7 +22,8 @@ const Variant = () =>
 const sidebarlist = [
   { icon: <LayoutDashboardIcon />, lable: "Dashboard", link: "/dashboard" },
   { icon: <HeartHandshakeIcon />, lable: "Customer", link: "/customers" },
-  { icon: <Bell />, lable: "Notification", link: "/notifications" },
+  { icon: <Mail />, lable: "Mail", link: "/messages" },
+  { icon: <Flower />, lable: "Subscription", link: "/subscription" },
   { icon: <Cog />, lable: "Setting", link: "/setting" },
   { icon: <UsersIcon />, lable: "Account", link: "/account" },
 ];
@@ -36,7 +38,14 @@ const SideBar = ({}: Props) => {
     router(sidebarlist[tabIdx].link);
     setActiveTab(tabIdx);
   };
-
+  useEffect(() => {
+    const acitveTbIndx = sidebarlist.findIndex((a) =>
+      pathname.includes(a.link)
+    );
+    if (acitveTbIndx > -1) {
+      setActiveTab(acitveTbIndx);
+    }
+  }, [pathname]);
   return (
     <>
       <div
@@ -62,7 +71,9 @@ const SideBar = ({}: Props) => {
               {sidebarlist.map((a, idx) => (
                 <li
                   onClick={() => sideBarClick(idx)}
-                  className="text-white items-center flex relative gap-2 hover:bg-slate-900 px-4 py-2 rounded w-full"
+                  className={`text-white items-center flex relative gap-2 hover:${
+                    acitveTb == idx ? "" : "bg-slate-950"
+                  } px-4 py-2 rounded w-full cursor-pointer`}
                 >
                   {a.icon}
                   {a.lable}

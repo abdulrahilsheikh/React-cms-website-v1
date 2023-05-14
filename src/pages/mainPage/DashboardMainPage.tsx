@@ -1,17 +1,20 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import DashboardHeader from "../../components/header/Header";
 import SideBar from "../../components/sideBar/SideBar";
-
+let rerners = 1;
 interface Props {}
 const headers: any = {
   "/": DashboardHeader,
   dashboard: DashboardHeader,
-  account: DashboardHeader,
 };
 function DashboardMainPage({}: Props) {
   const { pathname } = useLocation();
-  // console.log(pathname.split("/")[1]);
+
+  useEffect(() => {
+    rerners = rerners + 1;
+    console.log(rerners);
+  });
 
   const Temp = useMemo(() => {
     if (headers[pathname]) {

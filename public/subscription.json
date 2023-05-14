@@ -1,0 +1,94 @@
+{
+  "Monthly": [
+    {
+      "name": "Gold Plan",
+      "price": "$19.99",
+      "duration": "Monthly",
+      "type": "Starter",
+      "features": ["Priority customer support"],
+      "ctaText": "Subscribe Now",
+      "ctaLink": "https://example.com/subscribe",
+      "benefits": [
+        "Access to Exclusive Events",
+        "Early Access to New Features"
+      ],
+      "selected": true
+    },
+    {
+      "name": "Platinum Plan",
+      "price": "$29.99",
+      "duration": "Monthly",
+      "type": "Value",
+      "features": [
+        "Unlimited access to premium content",
+        "Ad-free browsing experience",
+        "Exclusive member benefits",
+        "Priority customer support"
+      ],
+      "ctaText": "Subscribe Now",
+      "ctaLink": "https://example.com/subscribe",
+      "benefits": ["Personalized Recommendations", "Enhanced Customer Support"]
+    },
+    {
+      "type": "Pro",
+      "name": "Diamond Plan",
+      "price": "$49.99",
+      "duration": "Monthly",
+      "features": [
+        "Unlimited access to premium content",
+        "Ad-free browsing experience",
+        "Exclusive member benefits",
+        "Priority customer support",
+        "24/7 customer support",
+        "Enhanced data privacy"
+      ],
+      "ctaText": "Subscribe Now",
+      "ctaLink": "https://example.com/subscribe",
+      "benefits": ["Access to Premium Forums", "Exclusive Webinars"]
+    }
+  ],
+  "Annual": [
+    {
+      "name": "Gold Plan",
+      "price": "$199.99",
+      "duration": "Annual",
+      "type": "Starter",
+      "features": ["Priority customer support"],
+      "ctaText": "Subscribe Now",
+      "ctaLink": "https://example.com/subscribe",
+      "benefits": ["Access to Exclusive Events", "Early Access to New Features"]
+    },
+    {
+      "name": "Platinum Plan",
+      "price": "$299.99",
+      "duration": "Annual",
+      "type": "Value",
+      "features": [
+        "Unlimited access to premium content",
+        "Ad-free browsing experience",
+        "Exclusive member benefits",
+        "Priority customer support"
+      ],
+      "ctaText": "Subscribe Now",
+      "ctaLink": "https://example.com/subscribe",
+      "benefits": ["Personalized Recommendations", "Enhanced Customer Support"]
+    },
+    {
+      "name": "Diamond Plan",
+      "price": "$499.99",
+      "duration": "Annual",
+      "type": "Pro",
+      "features": [
+        "Unlimited access to premium content",
+        "Ad-free browsing experience",
+        "Exclusive member benefits",
+        "Priority customer support",
+        "24/7 customer support",
+        "Enhanced data privacy"
+      ],
+      "ctaText": "Subscribe Now",
+      "ctaLink": "https://example.com/subscribe",
+      "benefits": ["Access to Premium Forums", "Exclusive Webinars"]
+    }
+  ]
+}
